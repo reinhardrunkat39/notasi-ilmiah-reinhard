@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Scientific Notation Checker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Scientific Notation</h1>
+    <p>Masukkan angka untuk dikonversi</p>
+
+    <input type="text" id="inputNumber" placeholder="Contoh: 15000 atau 1.5e4">
+
+    <button onclick="convert()">Cek Sekarang</button>
+
+    <div class="result" id="result">
+      <span><span class="label">Bentuk Biasa:</span> <span id="normal"></span></span>
+      <span><span class="label">Notasi Ilmiah:</span> <span id="scientific"></span></span>
+    </div>
+
+    <footer>Automata Project</footer>
+    <footer1>Reinhard G. M. Runkat - 241011060057 - Information System Class B</footer1>
+  </div>
+
+<script>
+function convert() {
+  let input = document.getElementById("inputNumber").value;
+  let resultBox = document.getElementById("result");
+  let normal = document.getElementById("normal");
+  let scientific = document.getElementById("scientific");
+
+  let number = Number(input);
+
+  if (input === "" || isNaN(number)) {
+    normal.innerText = "⚠️ Input tidak valid!";
+    scientific.innerText = "";
+    resultBox.style.display = "block";
+    return;
+  }
+
+  normal.innerText = number.toString();
+  scientific.innerText = number.toExponential(2);
+
+  resultBox.style.display = "block";
+}
+</script>
+
+</body>
+</html>
